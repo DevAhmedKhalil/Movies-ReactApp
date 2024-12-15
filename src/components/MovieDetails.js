@@ -8,13 +8,14 @@ const MovieDetails = () => {
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const apiKey = process.env.REACT_APP_API_KEY; // To Easy Change When Determine
 
   // Fetch movie details
   const getMovieDetails = async () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar-EG`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=ar-EG`
       );
       setMovie(res.data);
     } catch (error) {

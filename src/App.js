@@ -12,63 +12,68 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [pageCount, setPageCount] = useState(1);
 
-  //@ Function to fetch all movies (top_rated movies)
-  const getAllMovies = async () => {
+  const apiKey = process.env.REACT_APP_API_KEY; // To Easy Change When Determine
+
+  // Function to fetch all movies (popular)
+  const fetchAllMovies = async () => {
+    setLoading(true);
     try {
-      setLoading(true);
       const res = await axios.get(
-        // "https://api.themoviedb.org/3/movie/top_rated?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar-EG"
-        "https://api.themoviedb.org/3/movie/popular?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar-EG"
+        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ar-EG`
       );
-      // console.log(res.data);
       setMovies(res.data.results);
       setPageCount(res.data.total_pages);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error fetching movies:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  //@ GET Current Page
-  const getPage = async (pageNumber) => {
+  // Function to fetch movies for a specific page
+  const fetchMoviesForPage = async (pageNumber) => {
+    setLoading(true);
     try {
-      setLoading(true);
       const res = await axios.get(
-        // `https://api.themoviedb.org/3/movie/top_rated?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar&page=${pageNumber}`
-        `https://api.themoviedb.org/3/movie/popular?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar&page=${pageNumber}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ar-EG&page=${pageNumber}`
       );
       setMovies(res.data.results);
       setPageCount(res.data.total_pages);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error fetching page data:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  //@ useEffect hook to call getAllMovies once when the component mounts
+  // Function to search movies
+  const searchMovies = async (searchWord) => {
+    setLoading(true);
+    try {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchWord}`
+      );
+      setMovies(res.data.results);
+      setPageCount(res.data.total_pages);
+    } catch (error) {
+      console.error("Error searching movies:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // useEffect hook to call fetchAllMovies when the component mounts
   useEffect(() => {
-    getAllMovies();
+    fetchAllMovies();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //@ Function to search for movies
-  const search = async (searchWord) => {
-    setLoading(true);
+  // Function to handle search
+  const search = (searchWord) => {
     if (searchWord === "") {
-      getAllMovies();
+      fetchAllMovies();
     } else {
-      try {
-        const res = await axios.get(
-          `https://api.themoviedb.org/3/search/movie?api_key=e5a2630c75ead69da5ef2268731012c1&query=${searchWord}`
-        );
-        setMovies(res.data.results);
-        setPageCount(res.data.total_pages);
-      } catch (error) {
-        console.error("Error searching movies:", error);
-      } finally {
-        setLoading(false);
-      }
+      searchMovies(searchWord);
     }
   };
 
@@ -84,7 +89,7 @@ function App() {
                 <MoviesList
                   movies={movies}
                   loading={loading}
-                  getPage={getPage}
+                  getPage={fetchMoviesForPage}
                   pageCount={pageCount}
                 />
               }
