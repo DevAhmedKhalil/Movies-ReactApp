@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Col, Row, Spinner } from "react-bootstrap";
 import CardMovie from "./CardMovie";
+import PaginationComponent from "./PaginationComponent";
 
 const MoviesList = ({ movies, loading }) => {
   return (
@@ -27,6 +28,7 @@ const MoviesList = ({ movies, loading }) => {
           </Card>
         </Col>
       )}
+      {movies.length >= 1 ? <PaginationComponent movies={movies} /> : null}
     </Row>
   );
 };
