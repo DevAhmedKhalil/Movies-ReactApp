@@ -1,0 +1,81 @@
+body {
+  font-family: "Almarai", serif;
+  margin: 0;
+}
+.color-body {
+  background-color: white;
+  height: 100vh;
+}
+.nav-style {
+  height: 90px;
+  width: 1440px;
+  background-color: #b45b35;
+}
+.logo {
+  height: 70px;
+  width: 70px;
+}
+.search {
+  position: relative;
+}
+.search input {
+  height: 40px;
+  text-indent: 25px;
+  border-radius: 20px;
+}
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid red;
+}
+.search .fa-search {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+
+/** ------------------- CARD ------------------- **/
+
+.card {
+  position: relative;
+  overflow: hidden; /* Ensures no content spills outside the card */
+  cursor: pointer;
+  height: 375px;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps the image proportionate */
+  transition: all 0.3s ease-in-out;
+}
+
+.card__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Fully transparent by default */
+  opacity: 0; /* Initially hide the overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay on hover */
+  opacity: 1; /* Show overlay on hover */
+}
+
+.card:hover .card__image {
+  filter: brightness(0.7); /* Slightly dim the image on hover */
+}
+
+.overlay__text {
+  font-family: "Almarai", serif;
+  color: #f8f8f8;
+  font-size: 24px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Improves readability */
+}
