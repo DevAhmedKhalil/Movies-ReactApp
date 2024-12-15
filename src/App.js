@@ -17,8 +17,8 @@ function App() {
     try {
       setLoading(true);
       const res = await axios.get(
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar-EG"
-        // "https://api.themoviedb.org/3/movie/popular?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar-EG"
+        // "https://api.themoviedb.org/3/movie/top_rated?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar-EG"
+        "https://api.themoviedb.org/3/movie/popular?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar-EG"
       );
       // console.log(res.data);
       setMovies(res.data.results);
@@ -35,8 +35,8 @@ function App() {
     try {
       setLoading(true);
       const res = await axios.get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar&page=${pageNumber}`
-        // `https://api.themoviedb.org/3/movie/popular?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar&page=${pageNumber}`
+        // `https://api.themoviedb.org/3/movie/top_rated?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar&page=${pageNumber}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar&page=${pageNumber}`
       );
       setMovies(res.data.results);
       setPageCount(res.data.total_pages);
@@ -61,7 +61,6 @@ function App() {
       try {
         const res = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=e5a2630c75ead69da5ef2268731012c1&query=${searchWord}`
-          // `https://api.themoviedb.org/3/search/movie?api_key=e5a2630c75ead69da5ef2268731012c1&query=${searchWord}`
         );
         setMovies(res.data.results);
         setPageCount(res.data.total_pages);

@@ -1,3 +1,7 @@
+* {
+  font-family: "Almarai", serif;
+}
+
 body {
   font-family: "Almarai", serif;
   margin: 0;
@@ -78,4 +82,27 @@ body {
   color: #f8f8f8;
   font-size: 20px;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Improves readability */
+}
+
+/** Card Details **/
+
+.text-center p {
+  font-size: 20px;
+}
+
+.main-color {
+  color: #b45b35;
+  font-weight: bold;
+}
+
+.btn-main-color {
+  height: 40px;
+  background-color: #b45b35;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-main-color:hover {
+  background-color: #994c36;
 }

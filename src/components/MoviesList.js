@@ -4,6 +4,8 @@ import CardMovie from "./CardMovie";
 import PaginationComponent from "./PaginationComponent";
 
 const MoviesList = ({ movies, loading, getPage, pageCount }) => {
+  pageCount = 500; //! I make it 500, because it is 500 max and it responds to me total-pages=47667
+
   return (
     <Row className="mt-3">
       {loading ? (
