@@ -1,9 +1,10 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 
-const PaginationComponent = () => {
+const PaginationComponent = ({ getPage }) => {
   const handlePageClick = (data) => {
-    console.log("data.selected=", data.selected + 1);
+    // console.log("data.selected=", data.selected + 1);
+    getPage(data.selected + 1);
   };
 
   const pageCount = 500;

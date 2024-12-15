@@ -27,6 +27,24 @@ function App() {
     }
   };
 
+  // GET Current Page
+  const getPage = async (pageNumber) => {
+    try {
+      setLoading(true); // Set loading to true when starting the API call
+      // Fetch the list of popular movies from the API
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=e5a2630c75ead69da5ef2268731012c1&language=ar&page=${pageNumber}`
+      );
+
+      setMovies(res.data.results);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      // After the API call completes (success or failure), set loading to false
+      setLoading(false);
+    }
+  };
+
   // useEffect hook to call getAllMovies once when the component mounts
   useEffect(() => {
     getAllMovies(); // Fetch the movies when the component is first rendered
@@ -59,7 +77,7 @@ function App() {
       <NavBar search={search} />
       <Container>
         {/* Pass movies and loading state to MoviesList component */}
-        <MoviesList movies={movies} loading={loading} />
+        <MoviesList movies={movies} loading={loading} getPage={getPage} />
       </Container>
     </div>
   );
