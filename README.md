@@ -4,6 +4,12 @@
 
 The **Movie Explorer App** is a web application that allows users to search for and view detailed information about popular movies. It fetches data from the [The Movie Database (TMDb) API](https://www.themoviedb.org/), allowing users to explore movies, view their ratings, release dates, overviews, and other important details. The app also supports movie searching and pagination to help users find exactly what they're looking for.
 
+## Deployment
+
+The app is deployed to GitHub Pages. You can view it by clicking the link below:
+
+[Movies React App](https://devahmedkhalil.github.io/Movies-ReactApp/)
+
 ## Features
 
 - **Popular Movies List**: Displays a list of the most popular movies, with their posters, titles, and release dates.
