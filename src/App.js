@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import axios from "axios";
 
 import NavBar from "./components/NavBar";
@@ -81,7 +81,7 @@ function App() {
     <div className="font color-body">
       <NavBar search={search} />
       <Container>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route
               path="/"
@@ -96,7 +96,7 @@ function App() {
             />
             <Route path="/movie/:id" element={<MovieDetails />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </Container>
     </div>
   );
