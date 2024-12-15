@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import axios from "axios";
 
 import NavBar from "./components/NavBar";
 import MoviesList from "./components/MoviesList";
+import MovieDetails from "./components/MovieDetails";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -75,12 +77,22 @@ function App() {
     <div className="font color-body">
       <NavBar search={search} />
       <Container>
-        <MoviesList
-          movies={movies}
-          loading={loading}
-          getPage={getPage}
-          pageCount={pageCount}
-        />
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <MoviesList
+                  movies={movies}
+                  loading={loading}
+                  getPage={getPage}
+                  pageCount={pageCount}
+                />
+              }
+            />
+            <Route path="/movie/:id" element={<MovieDetails />} />
+          </Routes>
+        </BrowserRouter>
       </Container>
     </div>
   );
