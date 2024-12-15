@@ -2,11 +2,13 @@ import React from "react";
 import { Col } from "react-bootstrap";
 
 const CardMovie = ({ movie }) => {
+  if (!movie.poster_path) return null;
+
   return (
     <Col xs="6" sm="6" md="4" lg="3" className="my-1">
       <div className="card">
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           className="card__image"
           alt="img"
         />

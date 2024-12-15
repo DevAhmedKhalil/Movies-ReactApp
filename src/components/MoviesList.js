@@ -10,7 +10,7 @@ const MoviesList = ({ movies, loading }) => {
           <Spinner animation="border" variant="success" />
           <h3>جارٍ تحميل الأفلام...</h3>
         </Col>
-      ) : movies.length > 0 ? (
+      ) : movies.length >= 1 ? (
         movies.map((movie) => {
           return <CardMovie key={movie.id} movie={movie} />;
         })

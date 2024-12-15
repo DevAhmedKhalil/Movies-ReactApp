@@ -1,7 +1,11 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-const NavBar = () => {
+const NavBar = ({ search }) => {
+  const onSearch = (word) => {
+    search(word);
+  };
+
   return (
     <div className="nav-style w-100">
       <Container>
@@ -13,6 +17,7 @@ const NavBar = () => {
             <div className="search w-100">
               <i className="fa fa-search" aria-hidden="true"></i>
               <input
+                onChange={(e) => onSearch(e.target.value)}
                 type="text"
                 className="form-control"
                 placeholder="إبحث ..."
