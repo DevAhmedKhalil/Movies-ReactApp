@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/DevAhmedKhalil/Movies-ReactApp/static/css/main.59c030c5.css",
-    "main.js": "/DevAhmedKhalil/Movies-ReactApp/static/js/main.12b09000.js",
-    "static/media/logo.png": "/DevAhmedKhalil/Movies-ReactApp/static/media/logo.3b7006db26d2fb710be8.png",
-    "index.html": "/DevAhmedKhalil/Movies-ReactApp/index.html",
-    "main.59c030c5.css.map": "/DevAhmedKhalil/Movies-ReactApp/static/css/main.59c030c5.css.map",
-    "main.12b09000.js.map": "/DevAhmedKhalil/Movies-ReactApp/static/js/main.12b09000.js.map"
+    "main.css": "/Movies-ReactApp/static/css/main.59c030c5.css",
+    "main.js": "/Movies-ReactApp/static/js/main.847408a8.js",
+    "static/media/logo.png": "/Movies-ReactApp/static/media/logo.3b7006db26d2fb710be8.png",
+    "index.html": "/Movies-ReactApp/index.html",
+    "main.59c030c5.css.map": "/Movies-ReactApp/static/css/main.59c030c5.css.map",
+    "main.847408a8.js.map": "/Movies-ReactApp/static/js/main.847408a8.js.map"
   },
   "entrypoints": [
     "static/css/main.59c030c5.css",
-    "static/js/main.12b09000.js"
+    "static/js/main.847408a8.js"
   ]
 }
